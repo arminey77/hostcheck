@@ -2,8 +2,6 @@
 all:
   hosts:
     bs-kube-hap1:
-      ansible_user: h.azaddel@stdc.local
-      become_user: h.azaddel@stdc.local
       ansible_host: 172.20.36.2
       ansible_port: 8933
       disk:
@@ -31,8 +29,6 @@ all:
         vcpu: 2
         memory: 3919
     bs-kube-hap2:
-      ansible_user: h.azaddel@stdc.local
-      become_user: h.azaddel@stdc.local
       ansible_host: 172.20.36.3
       ansible_port: 8933
       disk:
@@ -60,8 +56,6 @@ all:
         vcpu: 2
         memory: 3919
     bs-kube-hap3:
-      ansible_user: h.azaddel@stdc.local
-      become_user: h.azaddel@stdc.local
       ansible_host: 172.20.36.4
       ansible_port: 8933
       disk:

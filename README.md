@@ -1,8 +1,10 @@
 # HostCheck stage inventory
 
 # Quick Start
+
+> Note: Don't forget to replace `<YOUR_USER>` with your own.
 ```
-git clone --recurse-submodules --remote-submodules https://gitops.asax.ir/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck-inventory-stage
+git clone --recurse-submodules --remote-submodules https://gitops.asax.ir/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck-inventory-stage -e 'ansible_user=<YOUR_USER>@stdc.local' -e 'become_user=<YOUR_USER>@stdc.local'
 cd hostcheck
 python -m venv .venv
 pip install -r requirements.txt
