@@ -1,0 +1,90 @@
+---
+all:
+  hosts:
+    bs-kube-hap1:
+      ansible_user: h.azaddel@stdc.local
+      become_user: h.azaddel@stdc.local
+      ansible_host: 172.20.36.2
+      ansible_port: 8933
+      disk:
+        mount_sizes:
+          - '/': '18.53 GB'
+          - '/boot': '0.95 GB'
+        lvm:
+          lvs:
+            ubuntu-lv:
+              size_g: '19.00'
+              vg: ubuntu-vg
+          pvs:
+            /dev/sda3:
+              size_g: '19.00'
+              vg: ubuntu-vg
+          vgs:
+            ubuntu-vg:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '19.00'
+      network:
+        netmask: 27
+        gateway: 172.20.36.1
+      resource:
+        vcpu: 2
+        memory: 3919
+    bs-kube-hap2:
+      ansible_user: h.azaddel@stdc.local
+      become_user: h.azaddel@stdc.local
+      ansible_host: 172.20.36.3
+      ansible_port: 8933
+      disk:
+        mount_sizes:
+          - '/': '18.53 GB'
+          - '/boot': '0.95 GB'
+        lvm:
+          lvs:
+            ubuntu-lv:
+              size_g: '19.00'
+              vg: ubuntu-vg
+          pvs:
+            /dev/sda3:
+              size_g: '19.00'
+              vg: ubuntu-vg
+          vgs:
+            ubuntu-vg:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '19.00'
+      network:
+        netmask: 27
+        gateway: 172.20.36.1
+      resource:
+        vcpu: 2
+        memory: 3919
+    bs-kube-hap3:
+      ansible_user: h.azaddel@stdc.local
+      become_user: h.azaddel@stdc.local
+      ansible_host: 172.20.36.4
+      ansible_port: 8933
+      disk:
+        mount_sizes:
+          - '/': '18.53 GB'
+          - '/boot': '0.95 GB'
+        lvm:
+          lvs:
+            ubuntu-lv:
+              size_g: '19.00'
+              vg: ubuntu-vg
+          pvs:
+            /dev/sda3:
+              size_g: '19.00'
+              vg: ubuntu-vg
+          vgs:
+            ubuntu-vg:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '19.00'
+      network:
+        netmask: 27
+        gateway: 172.20.36.1
+      resource:
+        vcpu: 2
+        memory: 3919
