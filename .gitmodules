@@ -1,0 +1,4 @@
+[submodule "hostcheck"]
+	path = hostcheck
+	url = git@gitops.asax.ir:platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck.git
+	branch = stage
