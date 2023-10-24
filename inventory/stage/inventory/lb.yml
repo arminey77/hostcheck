@@ -6,11 +6,11 @@ all:
       ansible_port: 8933
       disk:
         mount_sizes:
-          - '/': '6.06 GB'
-          - '/boot': '0.72 GB'
-          - '/var': '9.75 GB'
-          - '/home': '1.90 GB'
-          - '/var/log': '4.84 GB'
+          - /: 6.06 GB
+          - /boot: 0.72 GB
+          - /var: 9.75 GB
+          - /home: 1.90 GB
+          - /var/log: 4.84 GB
         lvm:
           lvs:
             lv-0:
@@ -67,8 +67,8 @@ all:
       ansible_port: 8933
       disk:
         mount_sizes:
-          - '/': '17.59 GB'
-          - '/boot': '0.95 GB'
+          - /: 17.59 GB
+          - /boot: 0.95 GB
         lvm:
           lvs:
             lv-0:
@@ -94,8 +94,8 @@ all:
       ansible_port: 8933
       disk:
         mount_sizes:
-          - '/': '17.59 GB'
-          - '/boot': '0.95 GB'
+          - /: 17.59 GB
+          - /boot: 0.95 GB
         lvm:
           lvs:
             lv-0:
