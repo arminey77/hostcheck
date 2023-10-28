@@ -115,5 +115,5 @@ ansible_collections
 
 # Ansible vault file
 .vault
-
+.pass
 
