@@ -4,12 +4,12 @@
 
 > Note: Don't forget to replace `<YOUR_USER>` with your own.
 ```
-git clone --recurse-submodules --remote-submodules https://gitops.asax.ir/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck-inventory-stage -e 'ansible_user=<YOUR_USER>@stdc.local' -e 'become_user=<YOUR_USER>@stdc.local'
+git clone --recurse-submodules --remote-submodules <THIS_REPO_URL>
 cd hostcheck
 python -m venv .venv
 pip install -r requirements.txt
 source .venv/bin/activate
-ansible-playbook -K  -i ../inventory/stage/inventory.yml main.yml -b
+ansible-playbook -K -k -i ../inventory/inventory.yml main.yml -b -e 'ansible_user=<YOUR_USER>@<ENV_DOMAIN>'
 ```
 
 > Note: To see verbose, add `-v` to `ansible-playbook` command
