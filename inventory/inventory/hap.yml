@@ -1,5 +1,5 @@
 ---
-all:
+hap:
   hosts:
     bs-kube-hap1:
       ansible_host: 172.20.36.2

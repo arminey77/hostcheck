@@ -1,5 +1,5 @@
 ---
-all:
+master:
   hosts:
     bs-kube-m1:
       ansible_host: 172.20.29.66

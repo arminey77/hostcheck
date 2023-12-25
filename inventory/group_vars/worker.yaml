@@ -1,0 +1,7 @@
+access_list:
+  - dst: bs-kube-hap1
+    port: 8443
+  - dst: bs-kube-hap2
+    port: 8443
+  - dst: bs-kube-hap3
+    port: 8443
