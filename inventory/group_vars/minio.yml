@@ -1,0 +1,6 @@
+access_list:
+  groups:
+    - name: hap
+      ports:
+        - 32001
+  singles: {}

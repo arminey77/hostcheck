@@ -1,0 +1,13 @@
+access_list:
+  groups:
+    - name: hap
+      ports:
+        - 8443
+    - name: worker
+      ports:
+        - 8443
+        - 32001
+    - name: minio
+      ports:
+        - 32001
+  singles: {}
