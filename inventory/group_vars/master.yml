@@ -1,0 +1,15 @@
+access_list:
+  groups:
+    - name: lb
+      ports:
+        - 6443
+    - name: worker
+      ports:
+        - 8443
+        - 8933
+        - 10250
+  #     - 4789  #   protocol: UDP  # Todo: add UDP support to acces_check
+    - name: gitlab
+      ports:
+        - 443
+  singles: {}

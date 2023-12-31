@@ -1,7 +1,0 @@
-access_list:
-  - dst: bs-kube-lb1
-    port: 6443
-  - dst: bs-kube-lb2
-    port: 6443
-  - dst: bs-kube-lb3
-    port: 6443

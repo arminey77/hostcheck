@@ -1,0 +1,6 @@
+access_list:
+  groups:
+    - name: master
+      ports:
+        - 6443
+  singles: {}

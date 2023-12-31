@@ -1,1 +1,2 @@
 timesyncd_server: 172.20.24.34
+pip_repo: "https://repo.asax.ir/repository/pypi-group1/simple"
