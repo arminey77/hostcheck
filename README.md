@@ -7,9 +7,9 @@
 git clone --recurse-submodules --remote-submodules <THIS_REPO_URL>
 cd hostcheck
 python -m venv .venv
-pip install -r requirements.txt
 source .venv/bin/activate
-ansible-playbook -K -k -i ../inventory/inventory.yml main.yml -b -e 'ansible_user=<YOUR_USER>@<ENV_DOMAIN>'
+pip install -r requirements.txt
+ansible-playbook -K -k -i ../inventory main.yml -b -e 'ansible_user=<YOUR_USER>@<ENV_DOMAIN>'
 ```
 
 > Note: To see verbose, add `-v` to `ansible-playbook` command
