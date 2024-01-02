@@ -2,13 +2,12 @@ access_list:
   groups:
     - name: master
       ports:
-        - 443
         # - 4789 # Protocol: UDP # Todo: Support UDP
         - 6443
         - 10250
     - name: lb
       ports:
-        - 443
+        # - 443
         - 6443
     - name: hap
       ports:
@@ -23,9 +22,21 @@ access_list:
     - name: cliq.zoho.com
       ports:
         - 443
-    - name: nfs-server
+    - name: 172.20.29.92 # bs-kube-lbvip
       ports:
-        - 111
-        # - 111 # Todo: Support UDP
-        - 2049
-        # - 2049 # Todo: Support UDP
+        - 6443
+    - name: 172.20.29.93 # bs-kube-lbvip
+      ports:
+        - 6443
+    - name: 172.20.29.94 # bs-kube-lbvip
+      ports:
+        - 6443
+    - name: 172.20.36.5 # bs-kube-hapvip
+      ports:
+        - 8443
+    - name: 172.20.36.6 # bs-kube-hapvip
+      ports:
+        - 8443
+    - name: 172.20.36.7 # bs-kube-hapvip
+      ports:
+        - 8443

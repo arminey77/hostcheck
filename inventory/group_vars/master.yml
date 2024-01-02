@@ -12,4 +12,14 @@ access_list:
     - name: gitlab
       ports:
         - 443
-  singles: {}
+  singles:
+    - name: 172.20.29.92 # bs-kube-lbvip
+      ports:
+        - 6443
+    - name: 172.20.29.93 # bs-kube-lbvip
+      ports:
+        - 6443
+    - name: 172.20.29.94 # bs-kube-lbvip
+      ports:
+        - 6443
+

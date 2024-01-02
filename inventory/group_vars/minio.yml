@@ -3,4 +3,13 @@ access_list:
     - name: hap
       ports:
         - 32001
-  singles: {}
+  singles:
+    - name: 172.20.36.5 # bs-kube-hapvip
+      ports:
+        - 32001
+    - name: 172.20.36.6 # bs-kube-hapvip
+      ports:
+        - 32001
+    - name: 172.20.36.7 # bs-kube-hapvip
+      ports:
+        - 32001
