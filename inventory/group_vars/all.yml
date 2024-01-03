@@ -9,9 +9,11 @@ local_access_list:
       ports:
         - 443
         - 6443
+        - 8404
         - 8933
     - name: lb
       ports:
+        - 8404
         - 8933
         - 6443
     - name: master
@@ -31,5 +33,31 @@ local_access_list:
     - name: keycloak
       ports:
         - 8933
-
-  singles: {}
+  singles:
+    - name: 172.20.29.92 # bs-kube-lbvip
+      ports:
+        - 8404
+        - 6443
+    - name: 172.20.29.93 # bs-kube-lbvip
+      ports:
+        - 8404
+        - 6443
+    - name: 172.20.29.94 # bs-kube-lbvip
+      ports:
+        - 8404
+        - 6443
+    - name: 172.20.36.5 # bs-kube-hapvip
+      ports:
+        - 443
+        - 6443
+        - 8404
+    - name: 172.20.36.6 # bs-kube-hapvip
+      ports:
+        - 443
+        - 6443
+        - 8404
+    - name: 172.20.36.7 # bs-kube-hapvip
+      ports:
+        - 443
+        - 6443
+        - 8404
