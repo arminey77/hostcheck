@@ -7,10 +7,11 @@ access_list:
         - 10250
     - name: lb
       ports:
-        # - 443
+        - 8404
         - 6443
     - name: hap
       ports:
+        - 8404
         - 8443
     - name: gitlab
       ports:
