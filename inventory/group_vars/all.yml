@@ -8,10 +8,12 @@ local_access_list:
     - name: hap
       ports:
         - 443
+        - 6443
         - 8933
     - name: lb
       ports:
         - 8933
+        - 6443
     - name: master
       ports:
         - 8933
