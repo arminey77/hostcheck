@@ -3,4 +3,15 @@ access_list:
     - name: master
       ports:
         - 6443
-  singles: {}
+  singles:
+    - name: gitops.asax.ir
+      ports:
+        - 443
+    - name: repo.asax.ir
+      ports:
+        - 80
+        - 443
+    - name: azure.asax.ir
+      ports:
+        - 80
+        - 443

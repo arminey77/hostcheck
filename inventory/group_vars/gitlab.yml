@@ -11,6 +11,17 @@ access_list:
       ports:
         - 32001
   singles:
+    - name: gitops.asax.ir
+      ports:
+        - 443
+    - name: repo.asax.ir
+      ports:
+        - 80
+        - 443
+    - name: azure.asax.ir
+      ports:
+        - 80
+        - 443
     - name: 172.20.36.5 # bs-kube-hapvip
       ports:
         - 8443
