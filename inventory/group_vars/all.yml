@@ -34,6 +34,17 @@ local_access_list:
       ports:
         - 8933
   singles:
+    - name: gitops.asax.ir
+      ports:
+        - 443
+    - name: repo.asax.ir
+      ports:
+        - 80
+        - 443
+    - name: azure.asax.ir
+      ports:
+        - 80
+        - 443
     - name: 172.20.29.92 # bs-kube-lbvip
       ports:
         - 8404
