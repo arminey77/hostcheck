@@ -31,6 +31,9 @@ access_list:
       ports:
         - 80
         - 443
+    - name: 172.28.57.10 # Splunk management port
+      ports:
+        - 8089
     - name: cliq.zoho.com
       ports:
         - 443
