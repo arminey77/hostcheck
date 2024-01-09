@@ -1,422 +1,135 @@
 ---
 worker:
   hosts:
-    bs-kube-w1:
-      ansible_host: 172.20.29.44
+    p2-kube-w1:
+      ansible_host: 192.168.146.51
       ansible_port: 8933
       disk:
         mount_sizes:
-          - /: 13.68 GB
-          - /boot: 1.36 GB
-          - /home: 3.37 GB
-          - /var: 19.52 GB
-          - /var/log: 9.75 GB
+          - /: 20.56 GB
+          - /boot: 1.44 GB
+          - /var: 13.73 GB
+          - /home: 3.86 GB
+          - /var/log: 2.88 GB
         lvm:
           lvs:
-            lv-0:
-              size_g: '3.50'
-              vg: vg3
+            lv-home:
+              size_g: '4.00'
+              vg: vg-home
+            lv-root:
+              size_g: '20.99'
+              vg: vg-root
+            lv-var:
+              size_g: '13.99'
+              vg: vg-var
+            lv-varlog:
+              size_g: '3.00'
+              vg: vg-varlog
           pvs:
             /dev/sda3:
-              size_g: '14.58'
-              vg: ubuntu-vg
-            /dev/sdb:
-              size_g: '21.00'
-              vg: vg1
-            /dev/sdc:
+              size_g: '8.00'
+              vg: vg-root
+            /dev/sda4:
               size_g: '2.00'
-              vg: vg2
-            /dev/sdd:
+              vg: vg-var
+            /dev/sda5:
+              size_g: '3.00'
+              vg: vg-varlog
+            /dev/sda6:
               size_g: '4.00'
-              vg: vg3
-            /dev/sde:
-              size_g: '11.00'
-              vg: vg0
+              vg: vg-home
+            /dev/sda7:
+              size_g: '12.00'
+              vg: vg-var
+            /dev/sda8:
+              size_g: '13.00'
+              vg: vg-root
           vgs:
-            ubuntu-vg:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '14.58'
-            vg0:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '11.00'
-            vg1:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '21.00'
-            vg2:
-              num_lvs: '0'
-              num_pvs: '1'
-              size_g: '2.00'
-            vg3:
+            vg-home:
               num_lvs: '1'
               num_pvs: '1'
               size_g: '4.00'
-      network:
-        netmask: 27
-        gateway: 172.20.29.33
-      resource:
-        vcpu: 4
-        memory: 15997
-    bs-kube-w2:
-      ansible_host: 172.20.29.45
-      ansible_port: 8933
-      disk:
-        mount_sizes:
-          - /: 14.17 GB
-          - /boot: 1.36 GB
-          - /var: 19.52 GB
-          - /home: 3.37 GB
-          - /var/log: 9.25 GB
-        lvm:
-          lvs:
-            lv-0:
-              size_g: '9.50'
-              vg: vg2
-          pvs:
-            /dev/sda3:
-              size_g: '14.58'
-              vg: ubuntu-vg
-            /dev/sdb:
-              size_g: '21.00'
-              vg: vg0
-            /dev/sdc:
-              size_g: '4.00'
-              vg: vg1
-            /dev/sdd:
-              size_g: '10.00'
-              vg: vg2
-          vgs:
-            ubuntu-vg:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '14.58'
-            vg0:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '21.00'
-            vg1:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '4.00'
-            vg2:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '10.00'
-      network:
-        netmask: 27
-        gateway: 172.20.29.33
-      resource:
-        vcpu: 4
-        memory: 15997
-    bs-kube-w3:
-      ansible_host: 172.20.29.46
-      ansible_port: 8933
-      disk:
-        mount_sizes:
-          - /: 14.66 GB
-          - /boot: 0.95 GB
-          - /var: 19.52 GB
-          - /home: 3.37 GB
-          - /var/log: 9.75 GB
-        lvm:
-          lvs:
-            lv-0:
-              size_g: '10.00'
-              vg: vg2
-            ubuntu-lv:
-              size_g: '15.00'
-              vg: ubuntu-vg
-          pvs:
-            /dev/sda3:
-              size_g: '15.00'
-              vg: ubuntu-vg
-            /dev/sdb:
-              size_g: '21.00'
-              vg: vg0
-            /dev/sdc:
-              size_g: '4.00'
-              vg: vg1
-            /dev/sdd:
-              size_g: '11.00'
-              vg: vg2
-          vgs:
-            ubuntu-vg:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '15.00'
-            vg0:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '21.00'
-            vg1:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '4.00'
-            vg2:
-              num_lvs: '1'
-              num_pvs: '1'
-              size_g: '11.00'
-      network:
-        netmask: 27
-        gateway: 172.20.29.33
-      resource:
-        vcpu: 4
-        memory: 15997
-    bs-kube-w4:
-      ansible_host: 172.20.29.47
-      ansible_port: 8933
-      disk:
-        mount_sizes:
-          - /: 29.42 GB
-          - /boot: 0.95 GB
-        lvm:
-          lvs:
-            ubuntu-lv:
-              size_g: '29.99'
-              vg: ubuntu-vg
-          pvs:
-            /dev/sda3:
-              size_g: '15.00'
-              vg: ubuntu-vg
-            /dev/sdb1:
-              size_g: '15.00'
-              vg: ubuntu-vg
-          vgs:
-            ubuntu-vg:
+            vg-root:
               num_lvs: '1'
               num_pvs: '2'
-              size_g: '29.99'
-      network:
-        netmask: 27
-        gateway: 172.20.29.33
-      resource:
-        vcpu: 4
-        memory: 15997
-    bs-kube-w5:
-      ansible_host: 172.20.29.48
-      ansible_port: 8933
-      disk:
-        mount_sizes:
-          - /: 30.40 GB
-          - /boot: 0.95 GB
-        lvm:
-          lvs:
-            ubuntu-lv:
-              size_g: '30.99'
-              vg: ubuntu-vg
-          pvs:
-            /dev/sda3:
-              size_g: '15.00'
-              vg: ubuntu-vg
-            /dev/sdb1:
-              size_g: '16.00'
-              vg: ubuntu-vg
-          vgs:
-            ubuntu-vg:
+              size_g: '20.99'
+            vg-var:
               num_lvs: '1'
               num_pvs: '2'
-              size_g: '30.99'
+              size_g: '13.99'
+            vg-varlog:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '3.00'
       network:
-        netmask: 27
-        gateway: 172.20.29.33
+        netmask: 28
+        gateway: 192.168.146.49
       resource:
         vcpu: 4
-        memory: 15997
-    bs-kube-w6:
-      ansible_host: 172.20.29.49
+        memory: 7957
+    p2-kube-w2:
+      ansible_host: 192.168.146.51
       ansible_port: 8933
       disk:
         mount_sizes:
-          - /: 13.68 GB
-          - /boot: 1.90 GB
-          - /home: 3.37 GB
-          - /var: 19.52 GB
-          - /var/log: 9.75 GB
+          - /: 20.56 GB
+          - /boot: 1.44 GB
+          - /var: 13.73 GB
+          - /home: 3.86 GB
+          - /var/log: 2.88 GB
         lvm:
           lvs:
-            lv-0:
-              size_g: '14.00'
-              vg: ubuntu-vg
-            lv-1:
-              size_g: '20.00'
-              vg: ubuntu-vg
-            lv-2:
-              size_g: '10.00'
-              vg: ubuntu-vg
-            lv-3:
-              size_g: '3.50'
-              vg: ubuntu-vg
+            lv-home:
+              size_g: '4.00'
+              vg: vg-home
+            lv-root:
+              size_g: '20.99'
+              vg: vg-root
+            lv-var:
+              size_g: '13.99'
+              vg: vg-var
+            lv-varlog:
+              size_g: '3.00'
+              vg: vg-varlog
           pvs:
             /dev/sda3:
-              size_g: '48.00'
-              vg: ubuntu-vg
+              size_g: '8.00'
+              vg: vg-root
+            /dev/sda4:
+              size_g: '2.00'
+              vg: vg-var
+            /dev/sda5:
+              size_g: '3.00'
+              vg: vg-varlog
+            /dev/sda6:
+              size_g: '4.00'
+              vg: vg-home
+            /dev/sda7:
+              size_g: '12.00'
+              vg: vg-var
+            /dev/sda8:
+              size_g: '13.00'
+              vg: vg-root
           vgs:
-            ubuntu-vg:
-              num_lvs: '4'
+            vg-home:
+              num_lvs: '1'
               num_pvs: '1'
-              size_g: '48.00'
+              size_g: '4.00'
+            vg-root:
+              num_lvs: '1'
+              num_pvs: '2'
+              size_g: '20.99'
+            vg-var:
+              num_lvs: '1'
+              num_pvs: '2'
+              size_g: '13.99'
+            vg-varlog:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '3.00'
       network:
-        netmask: 27
-        gateway: 172.20.29.33
+        netmask: 28
+        gateway: 192.168.146.49
       resource:
         vcpu: 4
-        memory: 16001        
-    bs-kube-w7:
-      ansible_host: 172.20.29.50
-      ansible_port: 8933
-      disk:
-        mount_sizes:
-          - /: 13.68 GB
-          - /home: 3.37 GB
-          - /boot: 1.90 GB
-          - /var: 19.52 GB
-          - /var/log: 9.75 GB
-
-        lvm:
-          lvs:
-            lv-0:
-              size_g: '14.00'
-              vg: ubuntu-vg
-            lv-1:
-              size_g: '20.00'
-              vg: ubuntu-vg
-            lv-2:
-              size_g: '10.00'
-              vg: ubuntu-vg
-            lv-3:
-              size_g: '3.50'
-              vg: ubuntu-vg
-          pvs:
-            /dev/sda3:
-              size_g: '48.00'
-              vg: ubuntu-vg
-          vgs:
-            ubuntu-vg:
-              num_lvs: '4'
-              num_pvs: '1'
-              size_g: '48.00'
-      network:
-        netmask: 27
-        gateway: 172.20.29.33
-      resource:
-        vcpu: 4
-        memory: 16001                
-    bs-kube-w8:
-      ansible_host: 172.20.29.51
-      ansible_port: 8933
-      disk:
-        mount_sizes:
-          - /: 13.68 GB
-          - /boot: 1.90 GB
-          - /var: 19.52 GB
-          - /home: 3.37 GB
-          - /var/log: 9.75 GB      
-        lvm:
-          lvs:
-            lv-0:
-              size_g: '14.00'
-              vg: ubuntu-vg
-            lv-1:
-              size_g: '20.00'
-              vg: ubuntu-vg
-            lv-2:
-              size_g: '10.00'
-              vg: ubuntu-vg
-            lv-3:
-              size_g: '3.50'
-              vg: ubuntu-vg
-          pvs:
-            /dev/sda3:
-              size_g: '48.00'
-              vg: ubuntu-vg
-          vgs:
-            ubuntu-vg:
-              num_lvs: '4'
-              num_pvs: '1'
-              size_g: '48.00'
-      network:
-        netmask: 27
-        gateway: 172.20.29.33
-      resource:
-        vcpu: 4
-        memory: 16001         
-    bs-kube-w9:
-      ansible_host: 172.20.29.52
-      ansible_port: 8933
-      disk:
-        mount_sizes:
-          - /: 13.68 GB
-          - /boot: 1.90 GB
-          - /home: 3.37 GB
-          - /var: 19.52 GB
-          - /var/log: 9.75 GB      
-        lvm:
-          lvs:
-            lv-0:
-              size_g: '14.00'
-              vg: ubuntu-vg
-            lv-1:
-              size_g: '20.00'
-              vg: ubuntu-vg
-            lv-2:
-              size_g: '10.00'
-              vg: ubuntu-vg
-            lv-3:
-              size_g: '3.50'
-              vg: ubuntu-vg
-          pvs:
-            /dev/sda3:
-              size_g: '48.00'
-              vg: ubuntu-vg
-          vgs:
-            ubuntu-vg:
-              num_lvs: '4'
-              num_pvs: '1'
-              size_g: '48.00'
-      network:
-        netmask: 27
-        gateway: 172.20.29.33
-      resource:
-        vcpu: 4
-        memory: 16001
-    bs-kube-w10:
-      ansible_host: 172.20.29.53
-      ansible_port: 8933
-      disk:
-        mount_sizes:
-          - /: 13.68 GB
-          - /boot: 1.90 GB
-          - /home: 3.37 GB
-          - /var: 19.52 GB
-          - /var/log: 9.75 GB
-        lvm:
-          lvs:
-            lv-0:
-              size_g: '14.00'
-              vg: ubuntu-vg
-            lv-1:
-              size_g: '20.00'
-              vg: ubuntu-vg
-            lv-2:
-              size_g: '10.00'
-              vg: ubuntu-vg
-            lv-3:
-              size_g: '3.50'
-              vg: ubuntu-vg
-          pvs:
-            /dev/sda3:
-              size_g: '48.00'
-              vg: ubuntu-vg
-          vgs:
-            ubuntu-vg:
-              num_lvs: '4'
-              num_pvs: '1'
-              size_g: '48.00'
-      network:
-        netmask: 27
-        gateway: 172.20.29.33
-      resource:
-        vcpu: 4
-        memory: 16001
+        memory: 7957

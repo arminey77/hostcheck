@@ -2,23 +2,9 @@ access_list:
   groups:
     - name: master
       ports:
+        - 6443
         # - 4789/UDP
-        - 6443
         - 10250
-    - name: lb
-      ports:
-        - 8404
-        - 6443
-    - name: hap
-      ports:
-        - 8404
-        - 8443
-    - name: gitlab
-      ports:
-        - 443
-    - name: minio
-      ports:
-        - 32001
   singles:
     - name: gitops.asax.ir
       ports:
@@ -37,21 +23,3 @@ access_list:
     - name: cliq.zoho.com
       ports:
         - 443
-    - name: 172.20.29.92 # bs-kube-lbvip
-      ports:
-        - 6443
-    - name: 172.20.29.93 # bs-kube-lbvip
-      ports:
-        - 6443
-    - name: 172.20.29.94 # bs-kube-lbvip
-      ports:
-        - 6443
-    - name: 172.20.36.5 # bs-kube-hapvip
-      ports:
-        - 8443
-    - name: 172.20.36.6 # bs-kube-hapvip
-      ports:
-        - 8443
-    - name: 172.20.36.7 # bs-kube-hapvip
-      ports:
-        - 8443
