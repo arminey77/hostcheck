@@ -1,17 +1,15 @@
 access_list:
   groups:
-    - name: lb
+    - name: hap
       ports:
-        - 6443
+        - 8443
     - name: worker
       ports:
         - 8443
-        - 8933
-        - 10250
-        # - 4789/UDP
-    - name: gitlab
+        - 32001
+    - name: minio
       ports:
-        - 443
+        - 32001
   singles:
     - name: gitops.asax.ir
       ports:
@@ -24,12 +22,12 @@ access_list:
       ports:
         - 80
         - 443
-    - name: 172.20.29.92 # bs-kube-lbvip
+    - name: 172.20.36.5 # bs-kube-hapvip
       ports:
-        - 6443
-    - name: 172.20.29.93 # bs-kube-lbvip
+        - 8443
+    - name: 172.20.36.6 # bs-kube-hapvip
       ports:
-        - 6443
-    - name: 172.20.29.94 # bs-kube-lbvip
+        - 8443
+    - name: 172.20.36.7 # bs-kube-hapvip
       ports:
-        - 6443
+        - 8443

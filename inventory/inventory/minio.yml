@@ -1,0 +1,65 @@
+minio:
+  hosts:
+    s2-paas-minio:
+      ansible_host: 192.168.143.230
+      ansible_port: 8933
+      disk:
+        mount_sizes:
+          - /: 6.06 GB
+          - /boot: 0.72 GB
+          - /var: 9.75 GB
+          - /home: 1.90 GB
+          - /var/log: 4.84 GB
+        lvm:
+          lvs:
+            lv-0:
+              size_g: '5.00'
+              vg: vg3
+            ubuntu-lv:
+              size_g: '6.25'
+              vg: ubuntu-vg
+          pvs:
+            /dev/sda3:
+              size_g: '6.25'
+              vg: ubuntu-vg
+            /dev/sdb:
+              size_g: '11.00'
+              vg: vg0
+            /dev/sdc:
+              size_g: '2.00'
+              vg: vg1
+            /dev/sdd:
+              size_g: '3.00'
+              vg: vg2
+            /dev/sde:
+              size_g: '6.00'
+              vg: vg3
+          vgs:
+            ubuntu-vg:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '6.25'
+            vg0:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '11.00'
+            vg1:
+              num_lvs: '0'
+              num_pvs: '1'
+              size_g: '2.00'
+            vg2:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '3.00'
+            vg3:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '6.00'
+      network:
+        netmask: 28
+        gateway: 172.20.29.81
+      resource:
+        vcpu: 4
+        memory: 7945
+
+
