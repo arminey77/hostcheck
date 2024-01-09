@@ -1,20 +1,38 @@
-change_kaspersky_state: false
-timesyncd_server: 192.168.170.200
+timesyncd_server: 172.20.24.34
 pip_repo: "https://repo.asax.ir/repository/pypi-group1/simple"
 
 access_check_single: "test-host:8080"
 
 local_access_list:
   groups:
+    - name: hap
+      ports:
+        - 443
+        - 6443
+        - 8404
+        - 8933
+    - name: lb
+      ports:
+        - 8404
+        - 8933
+        - 6443
     - name: master
       ports:
         - 8933
-        - 6443
     - name: worker
       ports:
         - 8933
         - 80
         - 443
+    - name: gitlab
+      ports:
+        - 8933
+    - name: minio
+      ports:
+        - 8933
+    - name: keycloak
+      ports:
+        - 8933
   singles:
     - name: gitops.asax.ir
       ports:
@@ -27,3 +45,30 @@ local_access_list:
       ports:
         - 80
         - 443
+    - name: 172.20.29.92 # bs-kube-lbvip
+      ports:
+        - 8404
+        - 6443
+    - name: 172.20.29.93 # bs-kube-lbvip
+      ports:
+        - 8404
+        - 6443
+    - name: 172.20.29.94 # bs-kube-lbvip
+      ports:
+        - 8404
+        - 6443
+    - name: 172.20.36.5 # bs-kube-hapvip
+      ports:
+        - 443
+        - 6443
+        - 8404
+    - name: 172.20.36.6 # bs-kube-hapvip
+      ports:
+        - 443
+        - 6443
+        - 8404
+    - name: 172.20.36.7 # bs-kube-hapvip
+      ports:
+        - 443
+        - 6443
+        - 8404
