@@ -61,13 +61,13 @@ lb:
         gateway: 172.20.29.81
       resource:
         vcpu: 4
-        memory: 7945
+        memory: 3919
     bs-kube-lb2:
       ansible_host: 172.20.29.83
       ansible_port: 8933
       disk:
         mount_sizes:
-          - /: 17.59 GB
+          - /: 17.55 GB
           - /boot: 0.95 GB
         lvm:
           lvs:
@@ -88,13 +88,13 @@ lb:
         gateway: 172.20.29.81
       resource:
         vcpu: 2
-        memory: 1987
+        memory: 3919
     bs-kube-lb3:
       ansible_host: 172.20.29.84
       ansible_port: 8933
       disk:
         mount_sizes:
-          - /: 17.59 GB
+          - /: 17.55 GB
           - /boot: 0.95 GB
         lvm:
           lvs:
@@ -115,7 +115,8 @@ lb:
         gateway: 172.20.29.81
       resource:
         vcpu: 2
-        memory: 1987
+        memory: 3919
+
 
 
 
