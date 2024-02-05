@@ -12,3 +12,12 @@ access_list:
       ports:
         - 80
         - 443
+    - name: addstage-dc
+      ports:
+        - 389
+    - name: asastage-dc
+      ports:
+        - 389
+    - name: shatelstage-dc
+      ports:
+        - 389
