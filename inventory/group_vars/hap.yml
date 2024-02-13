@@ -5,8 +5,8 @@ access_list:
         - 6443
     - name: worker
       ports:
-        - 80
-        - 443
+        - 32500 # Ingress-controller
+        - 32501 # Ingress-controller
         # - 30000
         # - 30002
         - 30003

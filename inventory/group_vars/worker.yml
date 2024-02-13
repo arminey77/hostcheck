@@ -5,14 +5,19 @@ access_list:
         # - 4789/UDP
         - 6443
         - 10250
+        - 2381
+        - 9100
     - name: lb
       ports:
         - 8404
         - 6443
+        - 9100
+        - 9165
     - name: hap
       ports:
         - 8404
-        - 8443
+        - 9100
+        - 9165
     - name: gitlab
       ports:
         - 443
