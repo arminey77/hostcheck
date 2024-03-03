@@ -36,6 +36,7 @@ local_access_list:
   singles:
     - name: gitops.asax.ir
       ports:
+        - 22
         - 443
     - name: repo.asax.ir
       ports:
