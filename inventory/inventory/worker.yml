@@ -350,8 +350,10 @@ worker:
           - /: 13.68 GB
           - /boot: 1.90 GB
           - /home: 3.37 GB
+          - /mnt/nfs: 98.12 GB
           - /var: 19.52 GB
-          - /var/log: 9.75 GB      
+          - /var/log: 9.75 GB
+
         lvm:
           lvs:
             lv-0:
