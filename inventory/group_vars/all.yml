@@ -3,6 +3,11 @@ pip_repo: "https://repo.asax.ir/repository/pypi-group1/simple"
 splunk_server: 172.20.26.21:8089
 access_check_single: "test-host:8080"
 
+sudoers_list:
+  - Linux-Platform
+sssd_list:
+  - Linux-Platform
+
 local_access_list:
   groups:
     - name: hap
@@ -22,8 +27,6 @@ local_access_list:
     - name: worker
       ports:
         - 8933
-        - 80
-        - 443
     - name: gitlab
       ports:
         - 8933
