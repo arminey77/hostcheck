@@ -18,6 +18,8 @@ update_submodule_job:
     - SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
     - SUBMODULE_HTTPS_URL=$(echo $SUBMODULE_SSH_URL | sed -e "s/git@\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
     - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
+
+    # Update the submodule
     - git submodule update --init --recursive --remote
 
     # Check for changes in the submodule. If there are changes, proceed with commit and push
