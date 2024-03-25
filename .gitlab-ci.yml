@@ -10,26 +10,29 @@ stages:
 update_submodule_job:
   stage: update_submodule
   script:
+    # Ensure Git knows who you are
+    - git config user.email "bot@gitops.asax.ir"
+    - git config user.name "GitLab CI Bot"
+
     # Extract the SSH URL from .gitmodules and convert it to HTTPS format using provided auth variables
     - SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
     - SUBMODULE_HTTPS_URL=$(echo $SUBMODULE_SSH_URL | sed -e "s/git@\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
     - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
+
+    # Update the submodule
     - git submodule update --init --recursive --remote
 
-    # Configure Git with the CI-specific user identity
-    - git config user.email "bot@gitops.asax.ir"
-    - git config user.name "GitLab CI Bot"
+    # Checkout a new branch for the submodule update
+    - BRANCH_NAME="submodule-update-$(date +%Y%m%d-%H%M%S)"
+    - git checkout -b $BRANCH_NAME
 
     # Commit the updated submodule reference
     - SUBMODULE_COMMIT=$(git -C hostcheck rev-parse HEAD)
-    - |
+    - >
       git commit -am "Update submodule to latest commit: $SUBMODULE_COMMIT [skip ci]"
 
-    # Set the remote URL to the current project URL with authentication for push
-    - |
-      git remote set-url origin https://$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@$(echo $CI_PROJECT_URL | sed -e 's|https://||')
+    # Push the new branch
+    - git push -o merge_request.create -o merge_request.target=main https://$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@$(echo $CI_PROJECT_URL | sed -e 's|https://||') HEAD
 
-    # Push the changes
-    - git push origin HEAD:main
   only:
     - main
