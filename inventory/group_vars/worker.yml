@@ -5,6 +5,8 @@ access_list:
         # - 4789/UDP
         - 6443
         - 10250
+        - 10257 # kube-controller-manager metrics
+        - 10259 # kube-scheduler metrics
         - 2381
         - 9100
     - name: lb
