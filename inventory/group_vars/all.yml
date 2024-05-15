@@ -10,6 +10,29 @@ sudoers_list:
 sssd_list:
   - Linux-Platform
 
+expected_hosts_file_entries:
+  - "127.0.0.1 localhost localhost.localdomain"
+  - "127.0.1.1 bs-kube-m1.stdc.local"
+  - "::1 ip6-localhost ip6-loopback localhost6 localhost6.localdomain"
+  - "fe00::0 ip6-localnet"
+  - "ff00::0 ip6-mcastprefix"
+  - "ff02::1 ip6-allnodes"
+  - "ff02::2 ip6-allrouters"
+  - "172.20.29.66 bs-kube-m1.cluster.local bs-kube-m1"
+  - "172.20.29.67 bs-kube-m2.cluster.local bs-kube-m2"
+  - "172.20.29.68 bs-kube-m3.cluster.local bs-kube-m3"
+  - "172.20.29.44 bs-kube-w1.cluster.local bs-kube-w1"
+  - "172.20.29.45 bs-kube-w2.cluster.local bs-kube-w2"
+  - "172.20.29.46 bs-kube-w3.cluster.local bs-kube-w3"
+  - "172.20.29.47 bs-kube-w4.cluster.local bs-kube-w4"
+  - "172.20.29.48 bs-kube-w5.cluster.local bs-kube-w5"
+  - "172.20.29.49 bs-kube-w6.cluster.local bs-kube-w6"
+  - "172.20.29.50 bs-kube-w7.cluster.local bs-kube-w7"
+  - "172.20.29.51 bs-kube-w8.cluster.local bs-kube-w8"
+  - "172.20.29.52 bs-kube-w9.cluster.local bs-kube-w9"
+  - "172.20.29.53 bs-kube-w10.cluster.local bs-kube-w10"
+
+
 local_access_list:
   groups:
     - name: hap
