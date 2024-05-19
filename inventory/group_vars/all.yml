@@ -5,6 +5,25 @@ access_check_single: "test-host:8080"
 nfs_enabled: true
 nfs_server: bs-kube-w1
 
+# ssh pub copy id
+ssh_authorized_keys_zone: "@StDc.local"
+
+ssh_authorized_keys:
+  a.hosseinpour:
+    public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN/iECv4qwEPa6tcbeFFDw0zxFGo/BdUWZXNTdXTN9ho A-Hoseinpour-U-15-05-2024
+  s.ghafarian:
+    public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMIXWTLK5HVJJzqOPgJAteGIj+jN0cnTFXYyLopHlivL s.ghafarian@asax.local@U-S-GHAFARIAN
+  h.azaddel:
+    public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINkIiezKAyrmilACc6Nnw0MCIly+uKVup+F/l5/jTq72 h.azaddel@asax.local@U-Azaddel
+  m.heidarpoor:
+    public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK3jwTDj5/5jLtGEpclvajECuGeuwbbBbroKCAsO5+sY U-Heidarpoor-15-05-2024
+  e.afzalizadeh:
+    public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL20v+4Sd1ZcoIFZgyEponoDboHWqCwK16CnqIot1Y8f asax\e.afzalizadeh@E-Afzalizadeh
+  f.asadpour:
+    public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMs4SRV48CHzh8nVJSlXlg2pkIUYVlyxeUziBEoGSn0g asax\f.asadpour@F-ASADIPOUR
+  a.serati:
+    public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJrGAQLHBtFVFBAH4QrK8gNzG5TzrSZD9y5MTy4ZpkEY a.serati@asax.local@U-A-Serati
+
 sudoers_list:
   - Linux-Platform
 sssd_list:
