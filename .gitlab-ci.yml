@@ -4,8 +4,17 @@ default:
   tags:
     - stage-kubernetes-builds
 
+variables:
+    ANSIBLE_FORCE_COLOR: 'true'
+    ANSIBLE_PYTHON_INTERPRRTER: /usr/bin/python3
+    ANSIBLE_USER: user
+    ANSIBLE_SSH_PASS: password
+    ANSIBLE_BECOME_PASS: password
+    ANSIBLE_CHECK_MODE: 'true'
+
 stages:
   - update_submodule
+  - ansible-run
 
 update_submodule_job:
   stage: update_submodule
@@ -38,3 +47,25 @@ update_submodule_job:
       fi
   only:
     - main
+
+ansible-run:
+  stage: ansible-run
+  image:
+    name: repo.asax.ir/python:3.12.2-slim-bullseye
+    entrypoint: [""]
+  when: manual
+  script:
+    # Clone submodules
+    - git config user.email "bot@gitops.asax.ir"
+    - git config user.name "GitLab CI Bot"
+    - SUBMODULE_HTTPS_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
+    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
+    - git submodule update --init --recursive --remote
+
+    - apt-get update
+    - apt-get install -y git
+    - cd hostcheck
+    - python3 -m venv .venv
+    - source .venv/bin/activate
+    - pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
+    - ansible-playbook -i ../inventory main.yml -b --extra-vars "ansible_user=$ANSIBLE_USER ansible_ssh_pass=$ANSIBLE_SSH_PASS ansible_become_pass=$ANSIBLE_BECOME_PASS ansible_check_mode=$ANSIBLE_CHECK_MODE"
