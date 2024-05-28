@@ -50,6 +50,8 @@ update_submodule_job:
 
 ansible-run:
   stage: ansible-run
+  tags:
+    - sre-ansible
   image:
     name: repo.asax.ir/python:3.12.2-slim-bullseye
     entrypoint: [""]
