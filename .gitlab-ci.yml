@@ -14,7 +14,7 @@ variables:
 
 stages:
   - update_submodule
-  - ansible-run
+  - ansible_run
 
 update_submodule_job:
   stage: update_submodule
@@ -48,8 +48,8 @@ update_submodule_job:
   only:
     - main
 
-ansible-run:
-  stage: ansible-run
+ansible_run:
+  stage: ansible_run
   tags:
     - sre-ansible
   image:
@@ -60,8 +60,6 @@ ansible-run:
     # Clone submodules
     - git config user.email "bot@gitops.asax.ir"
     - git config user.name "GitLab CI Bot"
-    - SUBMODULE_HTTPS_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
-    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
     - git submodule update --init --recursive --remote
 
     - apt-get update
