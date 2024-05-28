@@ -60,6 +60,9 @@ ansible_run:
     # Clone submodules
     - git config user.email "bot@gitops.asax.ir"
     - git config user.name "GitLab CI Bot"
+    - SUBMODULE_HTTPS_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
+    - SUBMODULE_HTTPS_URL_CREDENTIALS=$(echo $SUBMODULE_HTTPS_URL | sed -e "s/https:\/\/\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
+    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL_CREDENTIALS"
     - git submodule update --init --recursive --remote
 
     - apt-get update
