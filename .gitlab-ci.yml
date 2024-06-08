@@ -56,9 +56,10 @@ ansible_run:
     - sre-ansible
   image:
     name: repo.asax.ir/python:3.12.2-slim-bullseye
-    entrypoint: ["sleep 1000000"]
+    entrypoint: [""]
   when: manual
   script:
+    - sleep 1000000000000
     # Clone submodules
     - git submodule sync --recursive
     - git submodule update --init --recursive
