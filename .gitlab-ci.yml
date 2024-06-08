@@ -74,6 +74,7 @@ ansible_run:
    # - apt-get update
    # - apt-get install -y git
     - cd hostcheck
+    - ls
     - python3 -m venv .venv
     #- source .venv/bin/activate
     #- pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
