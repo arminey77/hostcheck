@@ -53,7 +53,7 @@ update_submodule_job:
 ansible_run:
   stage: ansible_run
   tags:
-    - sre-ansible
+    - stage-awx-legacy
   image:
     name: repo.asax.ir/python:3.12.2-slim-bullseye
     entrypoint: [""]
