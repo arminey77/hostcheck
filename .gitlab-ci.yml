@@ -55,7 +55,7 @@ ansible_run:
   tags:
     - sre-ansible
   image:
-    name: repo.asax.ir/python:3.12.2-slim-bullseye
+    name: repo.asax.ir/python:3.12.2-slim
     entrypoint: [""]
   when: manual
   script:
