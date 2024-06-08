@@ -71,8 +71,8 @@ ansible_run:
    # - git submodule update --init --recursive --remote
     - ls
     - pwd
-   # - apt-get update
-   # - apt-get install -y git
+    - apt-get update
+    - apt-get install -y git
     - cd hostcheck
     - ls
     - which python3
