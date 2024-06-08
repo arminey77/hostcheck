@@ -59,9 +59,9 @@ ansible_run:
     entrypoint: [""]
   when: manual
   script:
-    # Clone submodules
-    - git submodule sync --recursive
-    - git submodule update --init --recursive
+   # Clone submodules
+   #- git submodule sync --recursive
+   #- git submodule update --init --recursive
    # - git config user.email "bot@gitops.asax.ir"
    # - git config user.name "GitLab CI Bot"
    # - SUBMODULE_HTTPS_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
