@@ -71,8 +71,8 @@ ansible_run:
    # - git submodule update --init --recursive --remote
    # - ls
    # - pwd
-    - sudo apt-get update
-    - sudo apt-get install -y git
+    - apt-get update
+    - apt-get install -y git
     - cd hostcheck
     - python3 -m venv .venv
     #- source .venv/bin/activate
