@@ -11,6 +11,8 @@ variables:
   ANSIBLE_SSH_PASS: password
   ANSIBLE_BECOME_PASS: password
   ANSIBLE_CHECK_MODE: 'true'
+  SUBMODULE_URL: "https://a.molaei:glpat-L2ykjo2igAXV4dYx1xGM@gitops.asax.ir/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck.git"
+
 
 stages:
   - update_submodule
@@ -58,15 +60,17 @@ ansible_run:
   when: manual
   script:
     # Clone submodules
-    - git config user.email "bot@gitops.asax.ir"
-    - git config user.name "GitLab CI Bot"
-    - SUBMODULE_HTTPS_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
-    - SUBMODULE_HTTPS_URL_WITH_CREDENTIALS=$(echo $SUBMODULE_HTTPS_URL | sed "s#https://#https://$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@#")
-    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL_WITH_CREDENTIALS"
-    - echo $SUBMODULE_HTTPS_URL_WITH_CREDENTIALS
-    - git submodule update --init --recursive --remote
-    - ls
-    - pwd
+    - git submodule sync --recursive
+    - git submodule update --init --recursive
+   # - git config user.email "bot@gitops.asax.ir"
+   # - git config user.name "GitLab CI Bot"
+   # - SUBMODULE_HTTPS_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
+   # - SUBMODULE_HTTPS_URL_WITH_CREDENTIALS=$(echo $SUBMODULE_HTTPS_URL | sed "s#https://#https://$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@#")
+   # - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL_WITH_CREDENTIALS"
+   # - echo $SUBMODULE_HTTPS_URL_WITH_CREDENTIALS
+   # - git submodule update --init --recursive --remote
+   # - ls
+   # - pwd
     #- apt-get update
     #- apt-get install -y git
     #- cd hostcheck
