@@ -59,7 +59,6 @@ ansible_run:
     entrypoint: [""]
   when: manual
   script:
-    - sleep 1000000000000
     # Clone submodules
     - git submodule sync --recursive
     - git submodule update --init --recursive
@@ -70,8 +69,8 @@ ansible_run:
    # - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL_WITH_CREDENTIALS"
    # - echo $SUBMODULEw_HTTPS_URL_WITH_CREDENTIALS
    # - git submodule update --init --recursive --remote
-   # - ls
-   # - pwd
+    - ls
+    - pwd
    # - apt-get update
    # - apt-get install -y git
     - cd hostcheck
@@ -80,5 +79,5 @@ ansible_run:
     - ls /usr/local/bin/python3
     #- python3 -m venv .venv
     #- source .venv/bin/activate
-    - /usr/local/bin/python3 -m pip install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
+    - pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
     #- ansible-playbook -i ../inventory main.yml -b --extra-vars "ansible_user=$ANSIBLE_USER ansible_ssh_pass=$ANSIBLE_SSH_PASS ansible_become_pass=$ANSIBLE_BECOME_PASS ansible_check_mode=$ANSIBLE_CHECK_MODE"
