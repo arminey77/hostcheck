@@ -77,5 +77,5 @@ ansible_run:
     - ls
     #- python3 -m venv .venv
     #- source .venv/bin/activate
-    - pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
+    - pip install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
     #- ansible-playbook -i ../inventory main.yml -b --extra-vars "ansible_user=$ANSIBLE_USER ansible_ssh_pass=$ANSIBLE_SSH_PASS ansible_become_pass=$ANSIBLE_BECOME_PASS ansible_check_mode=$ANSIBLE_CHECK_MODE"
