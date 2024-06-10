@@ -60,15 +60,14 @@ ansible_run:
   when: manual
   script:
    # Clone submodules
-    - git submodule sync --recursive
-    - git submodule update --init --recursive
-   # - git config user.email "bot@gitops.asax.ir"
-   # - git config user.name "GitLab CI Bot"
-   # - SUBMODULE_HTTPS_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
-   # - SUBMODULE_HTTPS_URL_WITH_CREDENTIALS=$(echo $SUBMODULE_HTTPS_URL | sed "s#https://#https://  $GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@#")
-   # - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL_WITH_CREDENTIALS"
-   # - echo $SUBMODULEw_HTTPS_URL_WITH_CREDENTIALS
-   # - git submodule update --init --recursive --remote
+    - git config user.email "bot@gitops.asax.ir"
+    - git config user.name "GitLab CI Bot"
+
+    # Extract the SSH URL from .gitmodules and convert it to HTTPS format using provided auth variables
+    - SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
+    - SUBMODULE_HTTPS_URL=$(echo $SUBMODULE_SSH_URL | sed -e "s/git@\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
+    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
+    - git submodule update --init --recursive --remote
     - ls
     - pwd
     - cd hostcheck
