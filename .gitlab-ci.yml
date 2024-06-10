@@ -60,7 +60,7 @@ ansible_run:
   when: manual
   script:
    # Clone submodules
-    - ls
+    - ls -a
     - pwd
     - git config user.email "bot@gitops.asax.ir"
     - git config user.name "GitLab CI Bot"
