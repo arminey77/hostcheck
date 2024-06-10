@@ -60,23 +60,25 @@ ansible_run:
   when: manual
   script:
    # Clone submodules
-    - git config user.email "bot@gitops.asax.ir"
-    - git config user.name "GitLab CI Bot"
-    - git config --global --add safe.directory /builds/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck-inventory-stage
-    # Extract the SSH URL from .gitmodules and convert it to HTTPS format using provided auth variables
-    - SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
-    - SUBMODULE_HTTPS_URL=$(echo $SUBMODULE_SSH_URL | sed -e "s/git@\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
-    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
-    - git submodule update --init --recursive --remote
     - ls
     - pwd
-    - cd hostcheck
-    - ls
-    - which python3
-    - ls /usr/local/bin/python3
+    #- git config user.email "bot@gitops.asax.ir"
+    #- git config user.name "GitLab CI Bot"
+    #- git config --global --add safe.directory /builds/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck-inventory-stage
+    # Extract the SSH URL from .gitmodules and convert it to HTTPS format using provided auth variables
+    #- SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
+    #- SUBMODULE_HTTPS_URL=$(echo $SUBMODULE_SSH_URL | sed -e "s/git@\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
+    #- git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
+    #- git submodule update --init --recursive --remote
+    #- ls
+    #- pwd
+    #- cd hostcheck
+    #- ls
+    #- which python3
+    #- ls /usr/local/bin/python3
     #- python3 -m venv .venv
     #- source .venv/bin/activate
-    - pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
+    #- pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
     #- ansible-playbook -i ../inventory main.yml -b --extra-vars "ansible_user=$ANSIBLE_USER ansible_ssh_pass=$ANSIBLE_SSH_PASS ansible_become_pass=$ANSIBLE_BECOME_PASS ansible_check_mode=$ANSIBLE_CHECK_MODE"
   only:
     - add-ansible-runner
