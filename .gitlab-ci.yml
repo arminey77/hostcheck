@@ -11,7 +11,6 @@ variables:
   ANSIBLE_SSH_PASS: password
   ANSIBLE_BECOME_PASS: password
   ANSIBLE_CHECK_MODE: 'true'
-  SUBMODULE_URL: "https://a.molaei:glpat-L2ykjo2igAXV4dYx1xGM@gitops.asax.ir/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck.git"
 
 
 stages:
@@ -60,17 +59,14 @@ ansible_run:
   when: manual
   script:
    # Clone submodules
-    - ls -a
-    - pwd
-    # Extract the SSH URL from .gitmodules and convert it to HTTPS format using provided auth variables
     - SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
-    - SUBMODULE_HTTPS_URL=$(echo $SUBMODULE_SSH_URL | sed -e "s/git@\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
-#    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
-    - git config --global --add safe.directory /builds/platfrom-team/kubernetes-platform/kubernetes-infrastructure observability/hostcheck-inventory-stage
-    - git submodule update --init --recursive --remote
+    - PROTO=$(echo $SUBMODULE_SSH_URL | sed -e's,^\(.*://\).*,\1,g')
+    - URL=$(echo ${SUBMODULE_SSH_URL/$PROTO/})
+    - NEW_SUBMODULEURL="${PROTO}${GITLAB_AUTH_USERNAME}:${PYPI_REGISTRY_PASSWORD}@${URL}"
+    - git submodule update --init --recursive
     #- ls
     #- pwd
-    #- cd hostcheck
+    - cd hostcheck
     #- ls
     #- which python3
     #- ls /usr/local/bin/python3
