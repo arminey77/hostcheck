@@ -55,7 +55,7 @@ ansible_run:
   tags:
     - stage-awx-legacy
   image:
-    name: repo.asax.ir/asapython:3.12.2-slim-bullseye
+    name: repo.asax.ir/platform/asapython:3.12.2-slim-bullseye
     entrypoint: [""]
   when: manual
   script:
