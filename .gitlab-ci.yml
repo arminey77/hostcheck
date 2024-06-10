@@ -65,7 +65,7 @@ ansible_run:
     # Extract the SSH URL from .gitmodules and convert it to HTTPS format using provided auth variables
     - SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
     - SUBMODULE_HTTPS_URL=$(echo $SUBMODULE_SSH_URL | sed -e "s/git@\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
-    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
+#    - git config submodule.hostcheck.url "$SUBMODULE_HTTPS_URL"
     - git submodule update --init --recursive --remote
     #- ls
     #- pwd
