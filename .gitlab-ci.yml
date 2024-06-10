@@ -62,9 +62,6 @@ ansible_run:
    # Clone submodules
     - ls -a
     - pwd
-    - git config user.email "bot@gitops.asax.ir"
-    - git config user.name "GitLab CI Bot"
-
     # Extract the SSH URL from .gitmodules and convert it to HTTPS format using provided auth variables
     - SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
     - SUBMODULE_HTTPS_URL=$(echo $SUBMODULE_SSH_URL | sed -e "s/git@\(.*\):/https:\/\/$GITLAB_AUTH_USERNAME:$GITLAB_AUTH_TOKEN@\1\//")
