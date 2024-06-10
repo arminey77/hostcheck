@@ -59,6 +59,9 @@ ansible_run:
   when: manual
   script:
    # Clone submodules
+    - REPO_DIR="/builds/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck-inventory-stage"
+    - git config --global --add safe.directory $REPO_DIR
+    - cd $REPO_DIR
     - SUBMODULE_SSH_URL=$(git config --file .gitmodules --get submodule.hostcheck.url)
     - PROTO=$(echo $SUBMODULE_SSH_URL | sed -e's,^\(.*://\).*,\1,g')
     - URL=$(echo ${SUBMODULE_SSH_URL/$PROTO/})
