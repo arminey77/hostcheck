@@ -75,24 +75,6 @@ ansible_run:
     - ls
     - which python3
     - ls /usr/local/bin/python3
-    - |
-      curl -fsSL https://repo.asax.ir/repository/FileRepo/docker/gpgkey/gpg | sudo apt-key add -;\
-      curl -fsSL https://repo.asax.ir/repository/FileRepo/kubernetes/gpgkey/apt-key.gpg | sudo apt-key add -;\
-      curl -fsSL https://repo.asax.ir/repository/FileRepo/apt/ppa.launchpadcontent.net--deadsnakes--ppa--ubuntu/gpg | sudo    apt-key add -;
-      if [ -f /etc/apt/sources.list ]; then sudo mv /etc/apt/sources.list /etc/apt/sources.list-bak; fi
-      echo -e "deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/bionic-proxy/ focal main multiverse restricted universe
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/bionic-proxy/ focal-updates main multiverse restricted universe
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/bionic-proxy/ focal-backports main multiverse restricted universe
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/bionic-proxy/ focal-security main multiverse restricted universe
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/ubuntu/ focal main multiverse restricted universe
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/ubuntu/ focal-security main multiverse restricted universe
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/ubuntu/ focal-updates main multiverse restricted universe
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/ubuntu/ focal-backports main multiverse restricted universe
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/apt.kubernetes.io/ kubernetes-xenial main
-      deb [arch=amd64, trusted=yes] https://repo.asax.ir/repository/ppa.launchpadcontent.net--deadsnakes--ppa--ubuntu/ focal main
-      \n"|sudo tee /etc/apt/sources.list.d/repo.asax.list > /dev/null
-    - apt-get update
-    - apt-get install -y git
     #- python3 -m venv .venv
     #- source .venv/bin/activate
     - pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
