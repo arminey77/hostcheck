@@ -70,8 +70,10 @@ ansible_run:
     - NEW_SUBMODULEURL="${PROTO}${USERNAME}:${PASSWORD}@${URL}"
     - git config --file .gitmodules submodule.hostcheck.url $NEW_SUBMODULEURL
     - echo $NEW_SUBMODULEURL
-    - echo ${PASSWORD}
-    - echo ${USERNAME}
+    - echo $PASSWORD
+    - echo $USERNAME
+    - git config --global --add safe.directory /builds/platfrom-team/kubernetes-platform/kubernetes-infrastructure/observability/hostcheck-inventory-stage/hostcheck
+
     - git submodule update --init --recursive
     #- ls
     #- pwd
