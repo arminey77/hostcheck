@@ -78,6 +78,7 @@ ansible_run:
     #- ls
     #- pwd
     - cd hostcheck
+    - ls
     #- ls
     #- which python3
     #- ls /usr/local/bin/python3
