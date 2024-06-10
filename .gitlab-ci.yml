@@ -66,6 +66,9 @@ ansible_run:
     - PROTO=$(echo $SUBMODULE_SSH_URL | sed -e's,^\(.*://\).*,\1,g')
     - URL=$(echo ${SUBMODULE_SSH_URL/$PROTO/})
     - NEW_SUBMODULEURL="${PROTO}${GITLAB_AUTH_USERNAME}:${PYPI_REGISTRY_PASSWORD}@${URL}"
+    - echo $NEW_SUBMODULEURL
+    - echo $${GITLAB_AUTH_USERNAME}
+    - echo ${PYPI_REGISTRY_PASSWORD}
     - git submodule update --init --recursive
     #- ls
     #- pwd
