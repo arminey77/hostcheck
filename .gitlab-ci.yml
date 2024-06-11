@@ -82,6 +82,7 @@ ansible_run:
     #- pwd
     - cd hostcheck
     - ls
+    - which sshpass
     - sed -i 's/ruamel\.yaml\.clib==0\.2\.7/ruamel.yaml.clib>=0.2.7/g' requirements.txt
     - pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
 
