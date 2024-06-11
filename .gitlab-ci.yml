@@ -13,6 +13,9 @@ variables:
   ANSIBLE_CHECK_MODE: 'true'
   USERNAME: 'a.molaei'
   PASSWORD: 'glpat-iNGinWxgLtmX-ymo5zDL'
+  ns_namespace_name:
+    description: "Name of the namespace"
+    value: "ams-fundbackoffice-service"
 
 
 stages:
