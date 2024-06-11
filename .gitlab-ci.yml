@@ -7,15 +7,18 @@ default:
 variables:
   ANSIBLE_FORCE_COLOR: 'true'
   ANSIBLE_PYTHON_INTERPRRTER: /usr/bin/python3
-  ANSIBLE_USER: user
-  ANSIBLE_SSH_PASS: password
-  ANSIBLE_BECOME_PASS: password
   ANSIBLE_CHECK_MODE: 'true'
   USERNAME: 'a.molaei'
   PASSWORD: 'glpat-iNGinWxgLtmX-ymo5zDL'
-  ns_namespace_name:
-    description: "Name of the namespace"
-    value: "ams-fundbackoffice-service"
+  ANSIBLE_USER:
+    description: "ANSIBLE_USER"
+    value: "user"
+  ANSIBLE_SSH_PASS:
+    description: "ANSIBLE_SSH_PASS"
+    value: "password"
+  ANSIBLE_BECOME_PASS:
+    description: "ANSIBLE_BECOME_PASS"
+    value: "password"
 
 
 stages:
