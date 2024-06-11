@@ -16,9 +16,6 @@ variables:
   ANSIBLE_SSH_PASS:
     description: "ANSIBLE_SSH_PASS"
     value: "password"
-  ANSIBLE_BECOME_PASS:
-    description: "ANSIBLE_BECOME_PASS"
-    value: "password"
 
 
 stages:
@@ -87,6 +84,7 @@ ansible_run:
     - ls
     - sed -i 's/ruamel\.yaml\.clib==0\.2\.7/ruamel.yaml.clib>=0.2.7/g' requirements.txt
     - pip3 install -r requirements.txt  --default-timeout=180 --index-url=https://$PYPI_REGISTRY_USER:$PYPI_REGISTRY_PASSWORD@$PYPI_REGISTRY/repository/pypi-group1/simple
-    - /home/appuser/.local/bin/ansible-playbook -i ../inventory main.yml -b --extra-vars "ansible_user=$ANSIBLE_USER ansible_ssh_pass=$ANSIBLE_SSH_PASS ansible_become_pass=$ANSIBLE_BECOME_PASS ansible_check_mode=$ANSIBLE_CHECK_MODE"
+
+    - /home/appuser/.local/bin/ansible-playbook -i ../inventory main.yml -b --extra-vars "ansible_user=$ANSIBLE_USER ansible_ssh_pass=$ANSIBLE_SSH_PASS ansible_become_pass=$ANSIBLE_SSH_PASS ansible_check_mode=$ANSIBLE_CHECK_MODE"
   only:
     - add-ansible-runner
