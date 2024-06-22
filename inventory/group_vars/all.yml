@@ -2,9 +2,9 @@ timesyncd_server: 172.20.24.34
 pip_repo: "https://repo.asax.ir/repository/pypi-group1/simple"
 splunk_server: 172.20.26.21:8089
 access_check_single: "test-host:8080"
-nfs_enabled: true
 nfs_server: bs-kube-w1
 public_cert: "stdc.local.crt"
+node_exporter_enabled: false
 
 sudoers_list:
   - Linux-Platform
