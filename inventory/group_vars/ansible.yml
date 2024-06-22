@@ -1,0 +1,36 @@
+node_exporter_enabled: true
+access_list:
+  groups:
+    - name: hap
+      ports:
+        - 8933
+    - name: lb
+      ports:
+        - 8933
+    - name: master
+      ports:
+        - 8933
+    - name: worker
+      ports:
+        - 8933
+    - name: minio
+      ports:
+        - 8933
+    - name: keycloak
+      ports:
+        - 8933
+    - name: gitlab
+      ports:
+        - 8933
+  singles:
+    - name: gitops.asax.ir
+      ports:
+        - 443
+    - name: repo.asax.ir
+      ports:
+        - 80
+        - 443
+    - name: azure.asax.ir
+      ports:
+        - 80
+        - 443
