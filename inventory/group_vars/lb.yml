@@ -1,3 +1,4 @@
+node_exporter_enabled: true
 access_list:
   groups:
     - name: master

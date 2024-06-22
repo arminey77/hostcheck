@@ -3,14 +3,25 @@ access_list:
   groups:
     - name: hap
       ports:
-        - 8443
+        - 8933
+    - name: lb
+      ports:
+        - 8933
+    - name: master
+      ports:
+        - 8933
     - name: worker
       ports:
-        - 8443
-        - 32001
+        - 8933
     - name: minio
       ports:
-        - 32001
+        - 8933
+    - name: keycloak
+      ports:
+        - 8933
+    - name: gitlab
+      ports:
+        - 8933
   singles:
     - name: gitops.asax.ir
       ports:
@@ -23,12 +34,3 @@ access_list:
       ports:
         - 80
         - 443
-    - name: 172.20.36.5 # bs-kube-hapvip
-      ports:
-        - 8443
-    - name: 172.20.36.6 # bs-kube-hapvip
-      ports:
-        - 8443
-    - name: 172.20.36.7 # bs-kube-hapvip
-      ports:
-        - 8443

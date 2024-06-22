@@ -1,0 +1,30 @@
+---
+ansible:
+  hosts:
+    bs-conf-ansible1:
+      ansible_host: 172.20.38.50
+      ansible_port: 8933
+      disk:
+        mount_sizes:
+          - /: 36.12 GB
+          - /boot: 1.90 GB
+        lvm:
+          lvs:
+            ubuntu-lv:
+              size_g: '37.00'
+              vg: ubuntu-vg
+          pvs:
+            /dev/sda3:
+              size_g: '38.00'
+              vg: ubuntu-vg
+          vgs:
+            ubuntu-vg:
+              num_lvs: '1'
+              num_pvs: '1'
+              size_g: '38.00'
+      network:
+        netmask: 30
+        gateway: 172.20.38.49
+      resource:
+        vcpu: 4
+        memory: 7937
