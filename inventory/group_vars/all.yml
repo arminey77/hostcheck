@@ -4,6 +4,7 @@ splunk_server: 172.20.26.21:8089
 access_check_single: "test-host:8080"
 nfs_enabled: true
 nfs_server: bs-kube-w1
+public_cert: "stdc.local.crt"
 
 sudoers_list:
   - Linux-Platform
