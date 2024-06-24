@@ -81,6 +81,7 @@ ansible_run:
     #- ls
     #- pwd
     - cd hostcheck
+    - cat ansible.cfg
     - ls
     - ls /usr/bin/sshpass
     - sed -i 's/ruamel\.yaml\.clib==0\.2\.7/ruamel.yaml.clib>=0.2.7/g' requirements.txt
