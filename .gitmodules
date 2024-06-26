@@ -1,3 +1,0 @@
-[submodule "hostcheck"]
-	path = hostcheck
-	url = git@github.com:arminey77/hostcheck-sub.git
