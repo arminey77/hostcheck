@@ -1,0 +1,3 @@
+[submodule "hostcheck"]
+	path = hostcheck
+	url = https://github.com/arminey77/hostcheck-sub
